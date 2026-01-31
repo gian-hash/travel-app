@@ -1,8 +1,11 @@
-public class Trip
+namespace TravelAppHybrid.Models
 {
-    public int Id { get; set; }
-    public string Destination { get; set; }
-    public DateTime StartDate { get; set; }
-    public DateTime EndDate { get; set; }
-    public string Description { get; set; }
+    public class Trip
+    {
+        public int Id { get; set; }
+        public string? Destination { get; set; } 
+        public string? Description { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+    }
 }

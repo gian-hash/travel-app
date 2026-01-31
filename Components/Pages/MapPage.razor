@@ -1,7 +1,8 @@
 @page "/map"
+@using Microsoft.JSInterop
 
 <h3>Mappa Interattiva</h3>
-<div id="map" style="height: 400px;"></div>
+<div id="map" style="height: 500px;" class="rounded shadow"></div>
 
 @code {
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -12,5 +13,5 @@
         }
     }
 
-    [Inject] IJSRuntime JS { get; set; }
+    [Inject] IJSRuntime? JS { get; set; }
 }
