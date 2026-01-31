@@ -1,0 +1,31 @@
+@model IEnumerable<TravelAppHybrid.Models.Trip>
+
+<h2>Lista Viaggi</h2>
+
+<a href="/Trips/Create">➕ Aggiungi Viaggio</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Destinazione</th>
+            <th>Dal</th>
+            <th>Al</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in Model)
+        {
+            <tr>
+                <td>@t.Destination</td>
+                <td>@t.StartDate.ToShortDateString()</td>
+                <td>@t.EndDate.ToShortDateString()</td>
+                <td>
+                    <a href="/Trips/Edit/@t.Id">Modifica</a> |
+                    <a href="/Trips/Delete/@t.Id">Elimina</a> |
+                    <a href="/Trips/DownloadPdf/@t.Id">PDF</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

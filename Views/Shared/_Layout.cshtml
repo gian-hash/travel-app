@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - TravelAppHybrid</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a> |
+            <a href="/Trips">Viaggi (CRUD)</a> |
+            <a href="/map">Mappa</a> |
+            <a href="/blazor">Blazor</a>
+        </nav>
+        <nav>
+            <a href="/">Home</a> |
+            <a href="/Home/Privacy">Privacy</a> |
+            <a href="/blazor">Blazor</a>
+        </nav>
+    </header>
+
+    <main role="main" class="container">
+        @RenderBody()
+    </main>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,8 @@
+@page "/blazor"
+@namespace TravelAppHybrid.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+}
+
+<component type="typeof(TravelAppHybrid.Components.App)" render-mode="ServerPrerendered" />
