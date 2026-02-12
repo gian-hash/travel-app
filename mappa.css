@@ -1,0 +1,86 @@
+/* ===========================
+   SFONDO
+=========================== */
+.map-body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+.navbar {
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+}
+
+.nav-logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    position: relative;
+    padding-bottom: 4px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #aeeaff;
+}
+
+.nav-links a.active::after,
+.nav-links a:hover::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background: #aeeaff;
+    border-radius: 2px;
+}
+
+/* ===========================
+   MAPPA
+=========================== */
+#map {
+    height: 100vh;
+    width: 100%;
+    z-index: 1;
+}
+
+/* Popup elegante */
+.leaflet-popup-content-wrapper {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.leaflet-popup-tip {
+    background: rgba(255,255,255,0.85);
+}
