@@ -418,7 +418,7 @@ textarea {
 .login-body {
     margin: 0;
     height: 100vh;
-    background: url("img/travel-bg.jpg") center/cover no-repeat fixed;
+    background: url("img/travel-bg.png") center/cover no-repeat fixed;
     filter: blur(0px);
     display: flex;
     justify-content: center;
