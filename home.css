@@ -5,6 +5,7 @@
     margin: 0;
     height: 100vh;
     background: url("img/travel-bg.jpg") center/cover no-repeat fixed;
+    background-attachment: scroll;
     position: relative;
     overflow: hidden;
     font-family: 'Poppins', sans-serif;

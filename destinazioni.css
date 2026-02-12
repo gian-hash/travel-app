@@ -4,6 +4,7 @@
 .dest-body {
     margin: 0;
     background: url("img/travel-bg.jpg") center/cover no-repeat fixed;
+    background-attachment: scroll;
     font-family: 'Poppins', sans-serif;
     color: white;
     position: relative;
