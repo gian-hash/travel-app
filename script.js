@@ -1,13 +1,8 @@
 const destinazioni = {
-    parigi: {
-        img: "img/parigi.jpg",
-        title: "Parigi",
-        text: "Parigi è la città dell’amore, dell’arte e della luce. Perfetta per passeggiate romantiche, musei e cibo incredibile."
-    },
-    tokyo: {
-        img: "img/tokyo.jpg",
-        title: "Tokyo",
-        text: "Tokyo è un mix unico di tradizione e modernità. Templi antichi, grattacieli futuristici e cibo straordinario."
+    london: {
+        img: "img/london.png",
+        title: "London",
+        text: "Londra"
     }
 };
 
