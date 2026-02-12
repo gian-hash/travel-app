@@ -1,40 +1,44 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accesso</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accesso</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body class="login-body">
-<img src="img/airplane.png" class="airplane">
+  <!-- AEREO ANIMATO -->
+  <img src="img/airplane.png" class="airplane" />
 
-<div class="login-container">
+  <!-- LOGIN BOX -->
+  <div class="login-container">
     <div class="login-box">
-        <h1 class="login-title">🌍 Benvenuto Viaggiatore</h1>
-        <p class="login-subtitle">Accedi al tuo mondo di avventure</p>
+      <h1 class="login-title">🌍 Benvenuto Viaggiatore</h1>
+      <p class="login-subtitle">Accedi al tuo mondo di avventure</p>
 
-        <div class="input-group">
-            <span class="input-icon">🔒</span>
-            <input type="password" id="pwd" placeholder="Inserisci la password">
-        </div>
+      <div class="input-group">
+        <span class="input-icon">🔒</span>
+        <input type="password" id="pwd" placeholder="Inserisci la password" />
+      </div>
 
-        <button class="login-btn" onclick="login()">Entra</button>
-        <p id="error" class="error-text"></p>
+      <button class="login-btn" onclick="login()">Entra</button>
+      <p id="error" class="error-text"></p>
     </div>
-</div>
+  </div>
 
-<script src="auth.js"></script>
-<script>
-for (let i = 0; i < 25; i++) {
-    const p = document.createElement("div");
-    p.classList.add("particle");
-    p.style.left = Math.random() * 100 + "vw";
-    p.style.top = Math.random() * 100 + "vh";
-    p.style.animationDelay = Math.random() * 5 + "s";
-    document.body.appendChild(p);
-}
-</script>
+  <!-- PARTICELLE -->
+  <script>
+    for (let i = 0; i < 25; i++) {
+      const p = document.createElement("div");
+      p.classList.add("particle");
+      p.style.left = Math.random() * 100 + "vw";
+      p.style.top = Math.random() * 100 + "vh";
+      p.style.animationDelay = Math.random() * 5 + "s";
+      document.body.appendChild(p);
+    }
+  </script>
 
+  <!-- SCRIPT LOGIN -->
+  <script src="auth.js"></script>
 </body>
 </html>

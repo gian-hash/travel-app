@@ -416,16 +416,16 @@ textarea {
     100% { transform: translateY(-120vh) scale(0.3); opacity: 0; }
 }
 .login-body {
-    margin: 0;
-    height: 100vh;
-    background: url("img/travel-bg.png") center/cover no-repeat fixed;
-    filter: blur(0px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
+  margin: 0;
+  height: 100vh;
+  background: url("img/travel-bg.jpg") center/cover no-repeat fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
+
 
 /* SFUMATURA SCURA PER LEGGIBILITÀ */
 .login-body::before {
