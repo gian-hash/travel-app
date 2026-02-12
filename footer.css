@@ -1,0 +1,72 @@
+/* ===========================
+   FOOTER PREMIUM
+=========================== */
+.footer {
+    margin-top: 80px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(14px);
+    border-top: 1px solid rgba(255,255,255,0.25);
+    padding: 40px 0 20px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-content {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    margin: 0 0 12px;
+    font-weight: 600;
+}
+
+.footer-section p {
+    margin: 6px 0;
+    opacity: 0.9;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin: 6px 0;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.85;
+    transition: 0.3s;
+}
+
+.footer-section ul li a:hover {
+    opacity: 1;
+    color: #aeeaff;
+}
+
+/* Linea finale */
+.footer-bottom {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+}
