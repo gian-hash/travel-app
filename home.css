@@ -4,7 +4,7 @@
 .home-body {
     margin: 0;
     height: 100vh;
-    background: url("img/travel-bg.jpg") center/cover no-repeat; 
+    background: url("img/travel-bg.jpg") center/cover no-repeat;
     background-attachment: scroll !important;
     position: relative;
     overflow: hidden;
@@ -18,7 +18,7 @@
     inset: 0;
     background: rgba(0,0,0,0.45);
     backdrop-filter: blur(3px);
-    z-index: 0; 
+    z-index: 0;
     pointer-events: none;
 }
 
