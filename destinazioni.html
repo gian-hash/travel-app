@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinazioni</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="topnav">
+    <a href="home.html">Home</a>
+    <a href="destinazioni.html" class="active">Destinazioni</a>
+    <a href="gallery.html">Galleria</a>
+    <a href="mappa.html">Mappa</a>
+    <a href="diario.html">Diario</a>
+</nav>
+
+<h2 class="title">Le mie destinazioni</h2>
+
+<section class="section">
+    <div class="cards">
+
+        <div class="card" onclick="openModal('parigi')">
+            <img src="img/parigi.jpg" alt="Parigi">
+            <h3>Parigi</h3>
+            <p>La città dell’amore.</p>
+        </div>
+
+        <div class="card" onclick="openModal('tokyo')">
+            <img src="img/tokyo.jpg" alt="Tokyo">
+            <h3>Tokyo</h3>
+            <p>Tradizione e futuro.</p>
+        </div>
+
+        <!-- Puoi aggiungere altre destinazioni qui -->
+        <!--
+        <div class="card" onclick="openModal('newyork')">
+            <img src="img/newyork.jpg" alt="New York">
+            <h3>New York</h3>
+            <p>La città che non dorme mai.</p>
+        </div>
+        -->
+
+    </div>
+</section>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <img id="modal-img" src="">
+        <h2 id="modal-title"></h2>
+        <p id="modal-text"></p>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
