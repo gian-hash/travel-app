@@ -1,0 +1,77 @@
+/* ===========================
+   SFONDO LONDRA
+=========================== */
+.londra-body {
+    margin: 0;
+    background: linear-gradient(
+        rgba(0, 20, 60, 0.75),
+        rgba(0, 20, 60, 0.75)
+    ),
+    url("img/london.png") center/cover no-repeat;
+    background-attachment: scroll !important;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+.londra-header {
+    text-align: center;
+    margin-top: 70px;
+    animation: fadeIn 1s ease forwards;
+}
+
+.londra-title {
+    font-size: 52px;
+    margin: 0;
+    font-weight: 700;
+    color: #e60023; /* rosso bandiera UK */
+    text-shadow: 0 0 12px rgba(255,0,40,0.4);
+}
+
+.londra-subtitle {
+    font-size: 20px;
+    opacity: 0.9;
+    margin-top: 10px;
+    color: #c9d6ff;
+}
+
+/* ===========================
+   CONTENUTO
+=========================== */
+.londra-content {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto 80px;
+    position: relative;
+    z-index: 10;
+}
+
+.day-box {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(14px);
+    border-radius: 18px;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-left: 5px solid #e60023; /* accento rosso UK */
+    border-right: 5px solid #003399; /* accento blu UK */
+    animation: fadeIn 0.8s ease;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.35);
+}
+
+.day-box h2 {
+    margin: 0 0 10px;
+    color: #c9d6ff;
+    font-weight: 600;
+}
+
+/* ===========================
+   ANIMAZIONI
+=========================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
