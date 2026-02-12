@@ -4,25 +4,24 @@
 .login-body {
     margin: 0;
     height: 100vh;
-    background: url("img/travel-bg.jpg") center/cover no-repeat fixed;
-    background-attachment: scroll;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: url("img/travel-bg.jpg") center/cover no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll !important;
     position: relative;
     overflow: hidden;
     font-family: 'Poppins', sans-serif;
+    z-index: -1; /* fondamentale per mobile */
 }
 
-/* Overlay scuro dietro (non blocca i click) */
 .login-body::before {
     content: "";
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.45);
     backdrop-filter: blur(3px);
-    z-index: -1;
-    pointer-events: none;
+    z-index: 0; /* NON negativo */
+    pointer-events: none; /* evita blocchi */
 }
 
 /* ===========================
