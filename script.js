@@ -1,38 +1,3 @@
-// Galleria dinamica
-const immagini = [
-    "img/parigi.jpg",
-    "img/tokyo.jpg"
-];
-
-const gallery = document.getElementById("gallery");
-if (gallery) {
-    immagini.forEach(src => {
-        const img = document.createElement("img");
-        img.src = src;
-        img.className = "gallery-img";
-        gallery.appendChild(img);
-    });
-}
-
-immagini.forEach(src => {
-    const img = document.createElement('img');
-    img.src = src;
-    img.style.width = "100%";
-    img.style.borderRadius = "10px";
-    gallery.appendChild(img);
-});
-
-// Diario salvato in localStorage
-function salvaDiario() {
-    const testo = document.getElementById('diarioInput').value;
-    localStorage.setItem('diarioViaggio', testo);
-    alert("Diario salvato!");
-}
-
-window.onload = () => {
-    const salvato = localStorage.getItem('diarioViaggio');
-    if (salvato) document.getElementById('diarioInput').value = salvato;
-};
 const destinazioni = {
     parigi: {
         img: "img/parigi.jpg",
