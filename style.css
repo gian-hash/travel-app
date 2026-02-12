@@ -102,6 +102,7 @@
         linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
             mask-composite: exclude;
+    pointer-events: none;
 }
 
 /* ===========================
@@ -125,27 +126,31 @@
 =========================== */
 .input-group {
     position: relative;
-    margin-top: 30px;
+    margin-top: 25px;
+    width: 100%;
 }
 
 .input-icon {
     position: absolute;
-    left: 12px;
+    left: 14px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 18px;
     opacity: 0.8;
+    pointer-events: none;
 }
 
 .input-group input {
     width: 100%;
-    padding: 14px 15px 14px 42px;
+    padding: 12px 14px 12px 40px; /* ridotto e proporzionato */
     border-radius: 12px;
     border: none;
     outline: none;
     font-size: 16px;
-    background: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.9);
+    box-sizing: border-box; /* fondamentale per evitare sbordi */
 }
+
 
 /* ===========================
    BOTTONE
