@@ -141,37 +141,42 @@ textarea {
     from { transform: translateY(40px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
+
 /* SFONDO LOGIN */
 .login-body {
     margin: 0;
     height: 100vh;
-    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    background: url("img/travel-bg.jpg") center/cover no-repeat fixed;
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: fadeIn 1s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-/* CONTENITORE CENTRALE */
+/* OVERLAY SCURO (dietro, non davanti) */
+.login-body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(3px);
+    z-index: -1; /* fondamentale */
+}
+
+/* RIMUOVI COMPLETAMENTE QUESTO BLOCCO SE LO HAI ANCORA
+.login-body::after { ... }
+*/
+
+/* LOGIN BOX SEMPRE DAVANTI */
 .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    position: relative;
+    z-index: 10;
 }
 
-/* BOX GLASSMORPHISM */
 .login-box {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(12px);
-    padding: 40px 30px;
-    border-radius: 20px;
-    width: 90%;
-    max-width: 380px;
-    text-align: center;
-    color: white;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    animation: slideUp 0.8s ease;
+    position: relative;
+    z-index: 20;
 }
 
 /* TITOLI */
@@ -243,31 +248,7 @@ textarea {
     from { transform: translateY(40px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
-/* SFONDO LOGIN MIGLIORATO */
-.login-body {
-    margin: 0;
-    height: 100vh;
-    background: linear-gradient(135deg, #4facfe, #00f2fe);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-    animation: fadeIn 1s ease;
-}
 
-/* EFFETTO LUCE DI SFONDO */
-.login-body::before {
-    content: "";
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    background: rgba(255,255,255,0.15);
-    filter: blur(120px);
-    border-radius: 50%;
-    top: -150px;
-    left: -150px;
-}
 
 .login-body::after {
     content: "";
@@ -279,22 +260,6 @@ textarea {
     border-radius: 50%;
     bottom: -120px;
     right: -120px;
-}
-
-/* BOX GLASSMORPHISM MIGLIORATO */
-.login-box {
-    background: rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(18px);
-    padding: 45px 35px;
-    border-radius: 22px;
-    width: 90%;
-    max-width: 380px;
-    text-align: center;
-    color: white;
-    box-shadow: 0 10px 35px rgba(0,0,0,0.25);
-    border: 1px solid rgba(255,255,255,0.25);
-    animation: slideUp 0.8s ease;
-    position: relative;
 }
 
 /* GLOW SOTTILE */
@@ -415,27 +380,7 @@ textarea {
     0% { transform: translateY(0) scale(1); opacity: 0.7; }
     100% { transform: translateY(-120vh) scale(0.3); opacity: 0; }
 }
-.login-body {
-  margin: 0;
-  height: 100vh;
-  background: url("img/travel-bg.jpg") center/cover no-repeat fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-}
 
-
-/* SFUMATURA SCURA PER LEGGIBILITÀ */
-.login-body::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.45);
-    backdrop-filter: blur(3px);
-    z-index: -1;
-}
 /* TRANSIZIONE DI USCITA */
 .fade-out {
     animation: fadeOut 0.7s forwards ease;
