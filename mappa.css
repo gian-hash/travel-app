@@ -13,20 +13,20 @@
 =========================== */
 .navbar {
     width: 100%;
-    padding: 12px 20px; /* molto più compatta */
+    padding: 10px 18px; /* molto più compatta */
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.12);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255,255,255,0.25);
 }
 
 .nav-logo {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
     white-space: nowrap;
 }
@@ -34,7 +34,7 @@
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 16px; /* molto più stretto */
+    gap: 14px; /* ridotto */
     flex-wrap: nowrap;
 }
 
@@ -46,18 +46,6 @@
     white-space: nowrap;
     position: relative;
 }
-@media (max-width: 900px) {
-    .nav-links {
-        gap: 12px;
-    }
-}
-
-@media (max-width: 700px) {
-    .nav-links {
-        gap: 8px;
-    }
-}
-
 
 .nav-links a:hover,
 .nav-links a.active {
@@ -75,6 +63,26 @@
     background: #aeeaff;
     border-radius: 2px;
 }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .nav-links {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 750px) {
+    .nav-links {
+        gap: 6px;
+    }
+}
+
+@media (max-width: 650px) {
+    .nav-links a {
+        font-size: 12px;
+    }
+}
+
 
 /* ===========================
    MAPPA
