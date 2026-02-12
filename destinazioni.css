@@ -3,8 +3,8 @@
 =========================== */
 .dest-body {
     margin: 0;
-    background: url("img/travel-bg.jpg") center/cover no-repeat fixed;
-    background-attachment: scroll;
+    background: url("img/travel-bg.jpg") center/cover no-repeat; 
+    background-attachment: scroll !important;
     font-family: 'Poppins', sans-serif;
     color: white;
     position: relative;
@@ -17,7 +17,8 @@
     inset: 0;
     background: rgba(0,0,0,0.45);
     backdrop-filter: blur(3px);
-    z-index: -1;
+    z-index: 0; 
+    pointer-events: none;
 }
 
 
