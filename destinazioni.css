@@ -24,7 +24,7 @@
 =========================== */
 .navbar {
     width: 100%;
-    padding: 22px 50px;
+    padding: 18px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,40 +36,27 @@
     border-bottom: 1px solid rgba(255,255,255,0.25);
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 35px; /* più spazio tra i link */
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: white;
-    font-size: 17px;
-    padding: 6px 4px;
+.nav-logo {
+    font-size: 20px;
+    font-weight: 700;
     white-space: nowrap; /* evita che vada a capo */
 }
 
-
-.nav-logo {
-    font-size: 22px;
-    font-weight: 700;
-}
-
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 25px;
+    gap: 28px; /* ridotto per far entrare tutto */
+    flex-wrap: nowrap; /* impedisce di andare a capo */
 }
 
 .nav-links a {
     text-decoration: none;
     color: white;
     font-size: 16px;
-    position: relative;
-    padding-bottom: 4px;
-    transition: 0.3s;
+    padding: 4px 0;
+    white-space: nowrap; /* evita che Diario vada a capo */
 }
+
 
 .nav-links a:hover,
 .nav-links a.active {

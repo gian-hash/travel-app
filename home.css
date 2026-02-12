@@ -25,39 +25,39 @@
 =========================== */
 .navbar {
     width: 100%;
-    padding: 20px 40px;
+    padding: 18px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
+    position: sticky;
     top: 0;
-    left: 0;
-    z-index: 10;
+    z-index: 1000;
     background: rgba(255,255,255,0.15);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255,255,255,0.25);
 }
 
 .nav-logo {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
-    color: white;
+    white-space: nowrap; /* evita che vada a capo */
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 25px;
+    gap: 28px; /* ridotto per far entrare tutto */
+    flex-wrap: nowrap; /* impedisce di andare a capo */
 }
 
 .nav-links a {
     text-decoration: none;
     color: white;
     font-size: 16px;
-    position: relative;
-    padding-bottom: 4px;
-    transition: 0.3s;
+    padding: 4px 0;
+    white-space: nowrap; /* evita che Diario vada a capo */
 }
+
 
 .nav-links a:hover,
 .nav-links a.active {
