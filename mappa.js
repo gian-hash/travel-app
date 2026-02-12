@@ -1,27 +1,19 @@
-// Inizializza la mappa centrata sull'Europa
+// Inizializza la mappa
 var map = L.map('map').setView([48.5, 9], 4);
 
-// Tile layer (sfondo mappa)
+// Tile layer
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
 }).addTo(map);
 
-// Destinazioni
-const places = [
-    { name: "Parigi", coords: [48.8566, 2.3522], desc: "La città dell’amore." },
-    { name: "Tokyo", coords: [35.6895, 139.6917], desc: "Tradizione e futuro." },
-    { name: "New York", coords: [40.7128, -74.0060], desc: "La città che non dorme mai." },
-    { name: "Maldive", coords: [3.2028, 73.2207], desc: "Paradiso tropicale." }
-];
+// Variabili per la selezione dinamica
+let startPoint = null;
+let endPoint = null;
+let startMarker = null;
+let endMarker = null;
+let routeLine = null;
 
-// Aggiungi marker
-places.forEach(p => {
-    const marker = L.marker(p.coords).addTo(map);
-
-    marker._icon.classList.add("marker-bounce");
-
-    marker.bindPopup(`<b>${p.name}</b><br>${p.desc}`);
-});
+// Funzione per disegnare la rotta animata
 function animateRoute(coords) {
     let index = 0;
     const route = L.polyline([], { color: "#00d4ff", weight: 4 }).addTo(map);
@@ -31,37 +23,97 @@ function animateRoute(coords) {
         index++;
 
         if (index >= coords.length) clearInterval(interval);
-    }, 120);
-}
-animateRoute([ [48.8566, 2.3522], // Parigi 
-                [40.7128, -74.0060] // New York 
-            ]);
-function addRadar(lat, lng) {
-    const div = L.divIcon({ className: "radar" });
-    L.marker([lat, lng], { icon: div }).addTo(map);
+    }, 80);
+
+    return route;
 }
 
-addRadar(48.8566, 2.3522); // Parigi
-function flyMarker(start, end, duration = 4000) {
-    const marker = L.marker(start).addTo(map);
+// Quando clicchi sulla mappa
+map.on("click", function (e) {
 
-    const latDiff = end[0] - start[0];
-    const lngDiff = end[1] - start[1];
+    // Se non c'è ancora la partenza → imposta start
+    if (!startPoint) {
+        startPoint = e.latlng;
 
-    let startTime = null;
+        if (startMarker) map.removeLayer(startMarker);
 
-    function animate(t) {
-        if (!startTime) startTime = t;
-        const progress = Math.min((t - startTime) / duration, 1);
+        startMarker = L.marker(startPoint).addTo(map)
+            .bindPopup("Partenza").openPopup();
 
-        const lat = start[0] + latDiff * progress;
-        const lng = start[1] + lngDiff * progress;
-
-        marker.setLatLng([lat, lng]);
-
-        if (progress < 1) requestAnimationFrame(animate);
+        return;
     }
 
-    requestAnimationFrame(animate);
+    // Se c'è la partenza ma non la destinazione → imposta end
+    if (!endPoint) {
+        endPoint = e.latlng;
+
+        if (endMarker) map.removeLayer(endMarker);
+
+        endMarker = L.marker(endPoint).addTo(map)
+            .bindPopup("Destinazione").openPopup();
+
+        // Calcola la rotta (linea retta per ora)
+        const coords = [
+            [startPoint.lat, startPoint.lng],
+            [endPoint.lat, endPoint.lng]
+        ];
+
+        // Disegna la rotta animata
+        if (routeLine) map.removeLayer(routeLine);
+        routeLine = animateRoute(coords);
+
+        return;
+    }
+
+    // Se clicchi una terza volta → reset
+    startPoint = null;
+    endPoint = null;
+
+    if (startMarker) map.removeLayer(startMarker);
+    if (endMarker) map.removeLayer(endMarker);
+    if (routeLine) map.removeLayer(routeLine);
+
+    startMarker = null;
+    endMarker = null;
+    routeLine = null;
+});
+// Funzione per cercare una città
+async function searchCity(query) {
+    const url = `https://nominatim.openstreetmap.org/search?format=json&q=${query}`;
+
+    const response = await fetch(url);
+    const results = await response.json();
+
+    if (results.length === 0) {
+        alert("Nessun risultato trovato");
+        return;
+    }
+
+    const place = results[0];
+    const lat = parseFloat(place.lat);
+    const lon = parseFloat(place.lon);
+
+    // Sposta la mappa
+    map.setView([lat, lon], 10);
+
+    // Aggiungi marker
+    if (window.searchMarker) map.removeLayer(window.searchMarker);
+
+    window.searchMarker = L.marker([lat, lon])
+        .addTo(map)
+        .bindPopup(`<b>${place.display_name}</b>`)
+        .openPopup();
 }
-flyMarker([48.8566, 2.3522], [40.7128, -74.0060]); // Parigi → New York
+
+// Eventi ricerca
+document.getElementById("searchBtn").addEventListener("click", () => {
+    const query = document.getElementById("searchInput").value;
+    if (query.trim() !== "") searchCity(query);
+});
+
+document.getElementById("searchInput").addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+        const query = document.getElementById("searchInput").value;
+        if (query.trim() !== "") searchCity(query);
+    }
+});
