@@ -24,17 +24,32 @@
 =========================== */
 .navbar {
     width: 100%;
-    padding: 20px 40px;
+    padding: 22px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
-    z-index: 20;
+    z-index: 1000;
     background: rgba(255,255,255,0.15);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255,255,255,0.25);
 }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 35px; /* più spazio tra i link */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    padding: 6px 4px;
+    white-space: nowrap; /* evita che vada a capo */
+}
+
 
 .nav-logo {
     font-size: 22px;
@@ -146,4 +161,15 @@
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 900px) {
+    .nav-links {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    .nav-links {
+        display: none; /* qui possiamo fare un menu hamburger se vuoi */
+    }
 }
