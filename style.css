@@ -141,3 +141,105 @@ textarea {
     from { transform: translateY(40px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
+/* SFONDO LOGIN */
+.login-body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1s ease;
+}
+
+/* CONTENITORE CENTRALE */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* BOX GLASSMORPHISM */
+.login-box {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    padding: 40px 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 380px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    animation: slideUp 0.8s ease;
+}
+
+/* TITOLI */
+.login-title {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.login-subtitle {
+    margin-top: 5px;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* INPUT */
+.input-group {
+    position: relative;
+    margin-top: 25px;
+}
+
+.input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px 12px 40px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+/* BOTTONE */
+.login-btn {
+    margin-top: 25px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #0077b6;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #e0f7ff;
+    transform: scale(1.05);
+}
+
+/* ERRORE */
+.error-text {
+    margin-top: 15px;
+    color: #ffdddd;
+    font-weight: bold;
+}
+
+/* ANIMAZIONI */
+@keyframes slideUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
