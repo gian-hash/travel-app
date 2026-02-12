@@ -70,8 +70,12 @@
     z-index: 10;
     display: flex;
     justify-content: center;
+    align-items: center;   /* CENTRA VERTICALMENTE */
     width: 100%;
+    height: 100vh;         /* OCCUPA TUTTA LA PAGINA */
+    padding-top: 0;        /* evita spazi indesiderati */
 }
+
 
 .login-box {
     background: rgba(255, 255, 255, 0.18);
