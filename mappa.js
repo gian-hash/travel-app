@@ -1,19 +1,42 @@
-// Inizializza la mappa
+// ===============================
+//  INIZIALIZZAZIONE MAPPA
+// ===============================
 var map = L.map('map').setView([48.5, 9], 4);
 
-// Tile layer
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
 }).addTo(map);
 
-// Variabili per la selezione dinamica
+// ===============================
+//  VARIABILI GLOBALI
+// ===============================
 let startPoint = null;
 let endPoint = null;
 let startMarker = null;
 let endMarker = null;
 let routeLine = null;
 
-// Funzione per disegnare la rotta animata
+// ===============================
+//  GEOCODIFICA (RICERCA CITTA')
+// ===============================
+async function geocodeCity(query) {
+    const url = `https://nominatim.openstreetmap.org/search?format=json&q=${query}`;
+
+    const response = await fetch(url);
+    const results = await response.json();
+
+    if (results.length === 0) return null;
+
+    return {
+        lat: parseFloat(results[0].lat),
+        lon: parseFloat(results[0].lon),
+        name: results[0].display_name
+    };
+}
+
+// ===============================
+//  ANIMAZIONE DELLA ROTTA
+// ===============================
 function animateRoute(coords) {
     let index = 0;
     const route = L.polyline([], { color: "#00d4ff", weight: 4 }).addTo(map);
@@ -28,92 +51,54 @@ function animateRoute(coords) {
     return route;
 }
 
-// Quando clicchi sulla mappa
-map.on("click", function (e) {
+// ===============================
+//  CALCOLO ROTTA (PARTENZA + DESTINAZIONE)
+// ===============================
+document.getElementById("routeBtn").addEventListener("click", async () => {
+    const startQuery = document.getElementById("startInput").value;
+    const endQuery = document.getElementById("endInput").value;
 
-    // Se non c'è ancora la partenza → imposta start
-    if (!startPoint) {
-        startPoint = e.latlng;
-
-        if (startMarker) map.removeLayer(startMarker);
-
-        startMarker = L.marker(startPoint).addTo(map)
-            .bindPopup("Partenza").openPopup();
-
+    if (!startQuery || !endQuery) {
+        alert("Inserisci sia la partenza che la destinazione");
         return;
     }
 
-    // Se c'è la partenza ma non la destinazione → imposta end
-    if (!endPoint) {
-        endPoint = e.latlng;
+    // Geocodifica
+    startPoint = await geocodeCity(startQuery);
+    endPoint = await geocodeCity(endQuery);
 
-        if (endMarker) map.removeLayer(endMarker);
-
-        endMarker = L.marker(endPoint).addTo(map)
-            .bindPopup("Destinazione").openPopup();
-
-        // Calcola la rotta (linea retta per ora)
-        const coords = [
-            [startPoint.lat, startPoint.lng],
-            [endPoint.lat, endPoint.lng]
-        ];
-
-        // Disegna la rotta animata
-        if (routeLine) map.removeLayer(routeLine);
-        routeLine = animateRoute(coords);
-
+    if (!startPoint || !endPoint) {
+        alert("Località non trovata");
         return;
     }
 
-    // Se clicchi una terza volta → reset
-    startPoint = null;
-    endPoint = null;
-
+    // Rimuovi marker e rotta precedenti
     if (startMarker) map.removeLayer(startMarker);
     if (endMarker) map.removeLayer(endMarker);
     if (routeLine) map.removeLayer(routeLine);
 
-    startMarker = null;
-    endMarker = null;
-    routeLine = null;
-});
-// Funzione per cercare una città
-async function searchCity(query) {
-    const url = `https://nominatim.openstreetmap.org/search?format=json&q=${query}`;
-
-    const response = await fetch(url);
-    const results = await response.json();
-
-    if (results.length === 0) {
-        alert("Nessun risultato trovato");
-        return;
-    }
-
-    const place = results[0];
-    const lat = parseFloat(place.lat);
-    const lon = parseFloat(place.lon);
-
-    // Sposta la mappa
-    map.setView([lat, lon], 10);
-
-    // Aggiungi marker
-    if (window.searchMarker) map.removeLayer(window.searchMarker);
-
-    window.searchMarker = L.marker([lat, lon])
+    // Marker partenza
+    startMarker = L.marker([startPoint.lat, startPoint.lon])
         .addTo(map)
-        .bindPopup(`<b>${place.display_name}</b>`)
+        .bindPopup("Partenza: " + startPoint.name)
         .openPopup();
-}
 
-// Eventi ricerca
-document.getElementById("searchBtn").addEventListener("click", () => {
-    const query = document.getElementById("searchInput").value;
-    if (query.trim() !== "") searchCity(query);
-});
+    // Marker destinazione
+    endMarker = L.marker([endPoint.lat, endPoint.lon])
+        .addTo(map)
+        .bindPopup("Destinazione: " + endPoint.name);
 
-document.getElementById("searchInput").addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-        const query = document.getElementById("searchInput").value;
-        if (query.trim() !== "") searchCity(query);
-    }
+    // Centra la mappa su entrambi i punti
+    map.fitBounds([
+        [startPoint.lat, startPoint.lon],
+        [endPoint.lat, endPoint.lon]
+    ]);
+
+    // Disegna rotta (linea retta)
+    const coords = [
+        [startPoint.lat, startPoint.lon],
+        [endPoint.lat, endPoint.lon]
+    ];
+
+    routeLine = animateRoute(coords);
 });
