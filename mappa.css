@@ -13,13 +13,12 @@
 =========================== */
 .navbar {
     width: 100%;
-    padding: 20px 40px;
+    padding: 12px 20px; /* molto più compatta */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
+    position: sticky;
     top: 0;
-    left: 0;
     z-index: 1000;
     background: rgba(255,255,255,0.15);
     backdrop-filter: blur(12px);
@@ -27,25 +26,38 @@
 }
 
 .nav-logo {
-    font-size: 22px;
-    font-weight: 700;
-    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    white-space: nowrap;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 25px;
+    gap: 16px; /* molto più stretto */
+    flex-wrap: nowrap;
 }
 
 .nav-links a {
     text-decoration: none;
     color: white;
-    font-size: 16px;
+    font-size: 14px; /* più piccolo */
+    padding: 4px 0;
+    white-space: nowrap;
     position: relative;
-    padding-bottom: 4px;
-    transition: 0.3s;
 }
+@media (max-width: 900px) {
+    .nav-links {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 700px) {
+    .nav-links {
+        gap: 8px;
+    }
+}
+
 
 .nav-links a:hover,
 .nav-links a.active {

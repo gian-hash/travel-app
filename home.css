@@ -26,7 +26,7 @@
 =========================== */
 .navbar {
     width: 100%;
-    padding: 18px 40px;
+    padding: 12px 20px; /* molto più compatta */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,24 +39,37 @@
 }
 
 .nav-logo {
-    font-size: 20px;
-    font-weight: 700;
-    white-space: nowrap; /* evita che vada a capo */
+    font-size: 18px;
+    font-weight: 600;
+    white-space: nowrap;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 28px; /* ridotto per far entrare tutto */
-    flex-wrap: nowrap; /* impedisce di andare a capo */
+    gap: 16px; /* molto più stretto */
+    flex-wrap: nowrap;
 }
 
 .nav-links a {
     text-decoration: none;
     color: white;
-    font-size: 16px;
+    font-size: 14px; /* più piccolo */
     padding: 4px 0;
-    white-space: nowrap; 
+    white-space: nowrap;
+    position: relative;
+}
+
+@media (max-width: 900px) {
+    .nav-links {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 700px) {
+    .nav-links {
+        gap: 8px;
+    }
 }
 
 
