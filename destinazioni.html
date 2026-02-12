@@ -4,58 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destinazioni</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="destinazioni.css">
 </head>
-<body>
 
-<nav class="topnav">
-    <a href="home.html">Home</a>
-    <a href="destinazioni.html" class="active">Destinazioni</a>
-    <a href="gallery.html">Galleria</a>
-    <a href="mappa.html">Mappa</a>
-    <a href="diario.html">Diario</a>
-</nav>
+<body class="dest-body">
 
-<h2 class="title">Le mie destinazioni</h2>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-logo">🌍 TravelApp</div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="destinazioni.html" class="active">Destinazioni</a></li>
+            <li><a href="galleria.html">Galleria</a></li>
+            <li><a href="mappa.html">Mappa</a></li>
+            <li><a href="diario.html">Diario</a></li>
+        </ul>
+    </nav>
 
-<section class="section">
-    <div class="cards">
+    <!-- HEADER -->
+    <header class="dest-header">
+        <h1 class="dest-title">🌎 Destinazioni</h1>
+        <p class="dest-subtitle">Scopri i luoghi più belli del mondo</p>
+    </header>
 
-        <div class="card" onclick="openModal('parigi')">
+    <!-- GRID DESTINAZIONI -->
+    <section class="dest-grid">
+
+        <div class="dest-card">
             <img src="img/parigi.jpg" alt="Parigi">
-            <h3>Parigi</h3>
-            <p>La città dell’amore.</p>
+            <div class="dest-info">
+                <h3>Parigi</h3>
+                <p>La città dell’amore, tra arte e magia.</p>
+            </div>
         </div>
 
-        <div class="card" onclick="openModal('tokyo')">
+        <div class="dest-card">
             <img src="img/tokyo.jpg" alt="Tokyo">
-            <h3>Tokyo</h3>
-            <p>Tradizione e futuro.</p>
+            <div class="dest-info">
+                <h3>Tokyo</h3>
+                <p>Tradizione e futuro in un’unica metropoli.</p>
+            </div>
         </div>
 
-        <!-- Puoi aggiungere altre destinazioni qui -->
-        <!--
-        <div class="card" onclick="openModal('newyork')">
+        <div class="dest-card">
             <img src="img/newyork.jpg" alt="New York">
-            <h3>New York</h3>
-            <p>La città che non dorme mai.</p>
+            <div class="dest-info">
+                <h3>New York</h3>
+                <p>La città che non dorme mai.</p>
+            </div>
         </div>
-        -->
 
-    </div>
-</section>
+        <div class="dest-card">
+            <img src="img/maldive.jpg" alt="Maldive">
+            <div class="dest-info">
+                <h3>Maldive</h3>
+                <p>Acque cristalline e relax assoluto.</p>
+            </div>
+        </div>
 
-<div id="modal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
+    </section>
 
-        <img id="modal-img" src="">
-        <h2 id="modal-title"></h2>
-        <p id="modal-text"></p>
-
-    </div>
-</div>
-
-<script src="script.js"></script>
 </body>
 </html>
