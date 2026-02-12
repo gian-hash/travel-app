@@ -1,0 +1,131 @@
+/* ===========================
+   SFONDO HOME
+=========================== */
+.home-body {
+    margin: 0;
+    height: 100vh;
+    background: url("img/travel-bg.jpg") center/cover no-repeat fixed;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Overlay scuro */
+.home-body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(3px);
+    z-index: -1;
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+.navbar {
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+}
+
+.nav-logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    position: relative;
+    padding-bottom: 4px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #aeeaff;
+}
+
+.nav-links a.active::after,
+.nav-links a:hover::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background: #aeeaff;
+    border-radius: 2px;
+}
+
+/* ===========================
+   HERO SECTION
+=========================== */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero-title {
+    font-size: 52px;
+    font-weight: 700;
+    margin: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    margin-top: 10px;
+    opacity: 0.9;
+    animation: fadeIn 1.4s ease forwards;
+}
+
+.hero-btn {
+    margin-top: 30px;
+    padding: 14px 28px;
+    background: white;
+    color: #0077b6;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: 0.3s;
+    animation: fadeIn 1.8s ease forwards;
+}
+
+.hero-btn:hover {
+    background: #e0f7ff;
+    transform: scale(1.06);
+}
+
+/* ===========================
+   ANIMAZIONI
+=========================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

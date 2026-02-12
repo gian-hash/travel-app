@@ -3,29 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Viaggi</title>
-    <link rel="stylesheet" href="style.css">
+    <title>I miei viaggi</title>
+    <link rel="stylesheet" href="home.css">
 </head>
-<body>
 
-<nav class="topnav">
-    <a href="home.html">Home</a>
-    <a href="destinazioni.html">Destinazioni</a>
-    <a href="gallery.html">Galleria</a>
-    <a href="mappa.html">Mappa</a>
-    <a href="diario.html">Diario</a>
-</nav>
+<body class="home-body">
 
-<header class="hero">
-    <h1>🌍 I miei viaggi</h1>
-    <p>Esplora il mondo con me</p>
-</header>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-logo">🌍 TravelApp</div>
+        <ul class="nav-links">
+            <li><a href="home.html" class="active">Home</a></li>
+            <li><a href="destinazioni.html">Destinazioni</a></li>
+            <li><a href="galleria.html">Galleria</a></li>
+            <li><a href="mappa.html">Mappa</a></li>
+            <li><a href="diario.html">Diario</a></li>
+        </ul>
+    </nav>
 
-<audio id="bgMusic" src="audio/music.mp3" autoplay loop></audio>
-
-<script>
-document.getElementById("bgMusic").volume = 0.3;
-</script>
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <h1 class="hero-title">🌍 I miei viaggi</h1>
+        <p class="hero-subtitle">Esplora il mondo con me</p>
+        <a href="destinazioni.html" class="hero-btn">Inizia il viaggio</a>
+    </header>
 
 </body>
 </html>
