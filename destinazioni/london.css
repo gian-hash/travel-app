@@ -75,3 +75,12 @@
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+.price {
+    color: #e60023;
+    font-weight: 600;
+}
+
+.free {
+    color: #00ff9d;
+    font-weight: 600;
+}
