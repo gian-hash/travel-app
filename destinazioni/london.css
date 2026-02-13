@@ -7,7 +7,7 @@
         rgba(0, 20, 60, 0.75),
         rgba(0, 20, 60, 0.75)
     ),
-    url("img/london.png") center/cover no-repeat;
+    url("img/london-bg.jpg") center/cover no-repeat;
     background-attachment: scroll !important;
     font-family: 'Poppins', sans-serif;
     color: white;
@@ -28,7 +28,7 @@
     font-size: 52px;
     margin: 0;
     font-weight: 700;
-    color: #e60023; /* rosso bandiera UK */
+    color: #e60023; /* rosso UK */
     text-shadow: 0 0 12px rgba(255,0,40,0.4);
 }
 
@@ -37,6 +37,31 @@
     opacity: 0.9;
     margin-top: 10px;
     color: #c9d6ff;
+}
+
+/* ===========================
+   INDICE GIORNI
+=========================== */
+.londra-index {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 25px;
+}
+
+.londra-index a {
+    color: #c9d6ff;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    transition: 0.25s ease;
+}
+
+.londra-index a:hover {
+    background: rgba(255,255,255,0.25);
 }
 
 /* ===========================
@@ -50,22 +75,76 @@
     z-index: 10;
 }
 
+/* ===========================
+   BOX GIORNI
+=========================== */
 .day-box {
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(14px);
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(16px);
     border-radius: 18px;
-    padding: 25px;
-    margin-bottom: 25px;
-    border-left: 5px solid #e60023; /* accento rosso UK */
-    border-right: 5px solid #003399; /* accento blu UK */
+    padding: 28px;
+    margin-bottom: 30px;
+    border-left: 6px solid #e60023; /* rosso UK */
+    border-right: 6px solid #003399; /* blu UK */
     animation: fadeIn 0.8s ease;
     box-shadow: 0 10px 35px rgba(0,0,0,0.35);
 }
 
 .day-box h2 {
-    margin: 0 0 10px;
+    margin: 0 0 15px;
+    font-size: 26px;
+    font-weight: 700;
     color: #c9d6ff;
-    font-weight: 600;
+    text-shadow: 0 0 6px rgba(0,0,0,0.3);
+}
+
+/* ===========================
+   TESTO ITINERARIO
+=========================== */
+.day-box p {
+    margin: 10px 0;
+    line-height: 1.55;
+    font-size: 16px;
+}
+
+/* Orari evidenziati */
+.time {
+    color: #c9d6ff;
+    font-weight: 700;
+}
+
+/* Prezzi */
+.price {
+    color: #e60023;
+    font-weight: 700;
+}
+
+/* Attività gratuite */
+.free {
+    color: #00ff9d;
+    font-weight: 700;
+}
+
+/* ===========================
+   SEPARATORI
+=========================== */
+.separator {
+    height: 6px;
+    width: 100%;
+    background: linear-gradient(90deg, #e60023, #ffffff, #003399);
+    border-radius: 4px;
+    margin: 40px 0;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+.london-footer {
+    text-align: center;
+    padding: 20px;
+    color: #c9d6ff;
+    opacity: 0.7;
+    font-size: 14px;
 }
 
 /* ===========================
@@ -75,12 +154,20 @@
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
-.price {
-    color: #e60023;
-    font-weight: 600;
-}
 
-.free {
-    color: #00ff9d;
-    font-weight: 600;
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 600px) {
+    .londra-title {
+        font-size: 40px;
+    }
+
+    .day-box {
+        padding: 22px;
+    }
+
+    .day-box h2 {
+        font-size: 22px;
+    }
 }
