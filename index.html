@@ -40,5 +40,13 @@
 
   <!-- SCRIPT LOGIN -->
   <script src="auth.js"></script>
+<script>
+document.getElementById("pwd").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+        login();
+    }
+});
+</script>
+
 </body>
 </html>

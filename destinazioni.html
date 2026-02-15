@@ -9,6 +9,11 @@
 </head>
 
 <body class="dest-body">
+    <script>
+    if (localStorage.getItem("auth") !== "true") {
+        window.location.href = "index.html"; // o login.html, come preferisci
+    }
+    </script>
 
     <!-- NAVBAR -->
     <nav class="navbar">

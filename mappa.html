@@ -12,11 +12,17 @@
 </head>
 
 <body class="map-body">
+    <script>
+    if (localStorage.getItem("auth") !== "true") {
+        window.location.href = "index.html"; // o login.html, come preferisci
+    }
+    </script>
+
     <div class="search-box">
-    <input type="text" id="startInput" placeholder="Partenza...">
-    <input type="text" id="endInput" placeholder="Destinazione...">
-    <button id="routeBtn">Calcola rotta</button>
-</div>
+        <input type="text" id="startInput" placeholder="Partenza...">
+        <input type="text" id="endInput" placeholder="Destinazione...">
+        <button id="routeBtn">Calcola rotta</button>
+    </div>
 
 
     <!-- NAVBAR -->
