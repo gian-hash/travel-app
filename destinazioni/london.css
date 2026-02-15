@@ -244,3 +244,36 @@
         padding: 12px 14px;
     }
 }
+
+
+.back-to-top {
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #e60023, #003399);
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    transition: 0.3s ease;
+    z-index: 999;
+    opacity: 0.85;
+}
+
+.back-to-top:hover {
+    transform: scale(1.12);
+    opacity: 1;
+}
+
+/* Nasconde il pulsante quando si è in cima */
+.back-to-top.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
