@@ -277,3 +277,36 @@
     opacity: 0;
     pointer-events: none;
 }
+/* SWITCH OPZIONI */
+.option-switch {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.option-switch button {
+    padding: 6px 14px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background: rgba(255,255,255,0.15);
+    color: #c9d6ff;
+    font-weight: 600;
+    transition: 0.25s ease;
+}
+
+.option-switch button.active {
+    background: linear-gradient(135deg, #e60023, #003399);
+    color: white;
+}
+
+.option-box {
+    padding: 12px 14px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 10px;
+    border-left: 4px solid #e60023;
+}
+
+.hidden {
+    display: none;
+}

@@ -67,28 +67,37 @@
                     <div class="timeline-time">15:10</div>
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
+
                         <h3>Trasferimento verso Londra</h3>
-                        <p>Opzione A: Southern 
-                            Durata: circa 30–35 minuti<br>
-                            Frequenza: ogni 15 minuti circa.<br>
-                            Se compri in anticipo / off-peak<span class="price"> £12–£16 </span><br>
+
+                        <!-- BOTTONI SWITCH -->
+                        <div class="option-switch">
+                            <button onclick="showOption('A')" id="btnA" class="active">Opzione A</button>
+                            <button onclick="showOption('B')" id="btnB">Opzione B</button>
+                        </div>
+
+                        <!-- OPZIONE A -->
+                        <div id="optionA" class="option-box">
+                            <h4>Opzione A: Southern</h4>
+                            <p>Durata: circa 30–35 minuti<br>
+                            Frequenza: ogni 15 minuti<br>
+                            Se compri in anticipo/off‑peak: <span class="price">£12–£16</span><br>
                             Gatwick Express → Victoria (30 min) – <span class="price">£20–25</span><br>
                             Thameslink → London Bridge/Blackfriars (35–40 min) – <span class="price">£10–13</span></p>
+                        </div>
+
+                        <!-- OPZIONE B -->
+                        <div id="optionB" class="option-box hidden">
+                            <h4>Opzione B: Gatwick Express</h4>
+                            <p>Durata: circa 30 minuti<br>
+                            Frequenza: ogni 15 minuti<br>
+                            Prezzo: <span class="price">£20–25</span><br>
+                            Gatwick Express → Victoria (30 min)</p>
+                        </div>
+
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-time">15:10</div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Trasferimento verso Londra</h3>
-                        <p>Opzione A: Gatwick Express 
-                            Durata: circa 30–35 minuti<br>
-                            Frequenza: ogni 15 minuti circa.<br>
-                            Se compri in anticipo / off-peak<span class="price"> £12–£16 </span><br>
-                            Gatwick Express → Victoria (30 min) – <span class="price">£20–25</span><br>
-                    </div>
-                </div>
 
                 <div class="timeline-item">
                     <div class="timeline-time">16:00</div>
@@ -381,6 +390,26 @@
             btn.classList.add("hidden");
         }
 });
+</script>
+<script>
+function showOption(option) {
+    const A = document.getElementById("optionA");
+    const B = document.getElementById("optionB");
+    const btnA = document.getElementById("btnA");
+    const btnB = document.getElementById("btnB");
+
+    if (option === "A") {
+        A.classList.remove("hidden");
+        B.classList.add("hidden");
+        btnA.classList.add("active");
+        btnB.classList.remove("active");
+    } else {
+        B.classList.remove("hidden");
+        A.classList.add("hidden");
+        btnB.classList.add("active");
+        btnA.classList.remove("active");
+    }
+}
 </script>
 
 </body>
