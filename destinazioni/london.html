@@ -389,28 +389,27 @@
         } else {
             btn.classList.add("hidden");
         }
-});
-</script>
-<script>
-function showOption(option) {
-    const A = document.getElementById("optionA");
-    const B = document.getElementById("optionB");
-    const btnA = document.getElementById("btnA");
-    const btnB = document.getElementById("btnB");
+        });
 
-    if (option === "A") {
-        A.classList.remove("hidden");
-        B.classList.add("hidden");
-        btnA.classList.add("active");
-        btnB.classList.remove("active");
-    } else {
-        B.classList.remove("hidden");
-        A.classList.add("hidden");
-        btnB.classList.add("active");
-        btnA.classList.remove("active");
-    }
-}
-</script>
+        function showOption(option) {
+            const A = document.getElementById("optionA");
+            const B = document.getElementById("optionB");
+            const btnA = document.getElementById("btnA");
+            const btnB = document.getElementById("btnB");
+
+            if (option === "A") {
+                A.classList.remove("hidden");
+                B.classList.add("hidden");
+                btnA.classList.add("active");
+                btnB.classList.remove("active");
+            } else {
+                B.classList.remove("hidden");
+                A.classList.add("hidden");
+                btnB.classList.add("active");
+                btnA.classList.remove("active");
+            }
+        }
+    </script>
 
 </body>
 </html>
