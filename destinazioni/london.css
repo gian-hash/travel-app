@@ -303,3 +303,36 @@
 .hidden {
     display: none;
 }
+/* ===========================
+   BOTTONE MOSTRA/NASCONDI PREZZI
+=========================== */
+
+.toggle-prices-btn {
+    position: fixed;
+    bottom: 90px; /* sopra il pulsante "torna su" */
+    right: 22px;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #003399, #e60023);
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    transition: 0.3s ease;
+    z-index: 999;
+    opacity: 0.85;
+}
+
+.toggle-prices-btn:hover {
+    transform: scale(1.12);
+    opacity: 1;
+}
+
+/* Classe che nasconde i prezzi */
+.hide-prices .price,
+.hide-prices .free {
+    display: none;
+}

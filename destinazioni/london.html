@@ -381,6 +381,8 @@
 
     </section>
     <a href="#" class="back-to-top">⬆️</a>
+    <button class="toggle-prices-btn" onclick="togglePrices()">£</button>
+
     <script>
         document.addEventListener("scroll", () => {
         const btn = document.querySelector(".back-to-top");
@@ -408,6 +410,10 @@
                 btnB.classList.add("active");
                 btnA.classList.remove("active");
             }
+        }
+
+        function togglePrices() {
+            document.body.classList.toggle("hide-prices");
         }
     </script>
 
