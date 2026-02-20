@@ -300,13 +300,6 @@
     color: white;
 }
 
-.option-box {
-    padding: 12px 14px;
-    background: rgba(255,255,255,0.12);
-    border-radius: 10px;
-    border-left: 4px solid #e60023;
-}
-
 .hidden {
     display: none;
 }
