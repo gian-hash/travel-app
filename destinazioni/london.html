@@ -72,20 +72,29 @@
 
                         <!-- BOTTONI SWITCH -->
                         <div class="option-switch">
-                            <button onclick="showOption('A')" id="btnA" class="active">Opzione A</button>
-                            <button onclick="showOption('B')" id="btnB">Opzione B</button>
+                            <button onclick="showOption('A')" id="btnA" class="active">Bolt</button>
+                            <button onclick="showOption('B')" id="btnB">Southern</button>
+                            <button onclick="showOption('C')" id="btnC">Gatwick Express</button>
                         </div>
 
                         <!-- OPZIONE A -->
                         <div id="optionA">
-                            <h4>Southern - Consigliato</h4>
+                            <h4>Bolt - Consigliato</h4>
+                            <p>Durata: circa 30–35 minuti<br>
+                            Frequenza: ogni 15 minuti<br>
+                            Southern to London Victoria <span class="price">£15–£17</span><br>
+                        </div>
+
+                        <!-- OPZIONE A -->
+                        <div id="optionB" class="hidden">
+                            <h4>Southern</h4>
                             <p>Durata: circa 30–35 minuti<br>
                             Frequenza: ogni 15 minuti<br>
                             Southern to London Victoria <span class="price">£15–£17</span><br>
                         </div>
 
                         <!-- OPZIONE B -->
-                        <div id="optionB" class="hidden">
+                        <div id="optionC" class="hidden">
                             <h4>Gatwick Express</h4>
                             <p>Durata: circa 30 minuti<br>
                             Frequenza: ogni 15 minuti<br>
@@ -96,7 +105,7 @@
                 </div>
 
 
-                <div class="timeline-item">
+                <div class="timeline-item" id="noTrain">
                     <div class="timeline-time">16:07</div>
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
@@ -154,7 +163,7 @@
              GIORNO 2
         ============================ -->
         <div class="day-box" id="day2">
-            <h2>🇬🇧 Giorno 2 – Big Ben + Buckingham + Soho + Chinatown + Canary Wharf</h2>
+            <h2>Giorno 2 – Big Ben + Buckingham + Soho + Chinatown + Canary Wharf</h2>
 
             <div class="timeline">
 
@@ -163,7 +172,7 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <h3>Big Ben & Westminster</h3>
-                        <p>Metro: Notting Hill Gate → Westminster – <span class="price">£2.80</span></p>
+                        <p>Metro: Bayswater to Westminster <span class="price">£2.80</span></p>
                     </div>
                 </div>
 
@@ -172,7 +181,8 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <h3>St. James’s Park</h3>
-                        <p>Passeggiata nel parco</p>
+                        <p>Da Westminster a St. James’s Park a piedi
+                            Passeggiata nel parco</p>
                     </div>
                 </div>
 
@@ -182,7 +192,7 @@
                     <div class="timeline-content">
                         <h3>Buckingham Palace</h3>
                         <p>Cambio della Guardia (se previsto alle 11:00)<br>
-                        Costo: <span class="free">Gratis</span></p>
+                        <span class="free">Gratis</span></p>
                     </div>
                 </div>
 
@@ -191,9 +201,9 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <h3>Pranzo a Soho</h3>
-                        <p>Dishoom Carnaby (<span class="price">£20–30</span>)<br>
-                        Flat Iron (<span class="price">£15–20</span>)<br>
-                        Bao (<span class="price">£15–25</span>)</p>
+                        <p>Dishoom Carnaby <span class="price">£20–30</span><br>
+                        Flat Iron <span class="price">£15–20</span><br>
+                        Bao <span class="price">£15–25</span></p>
                     </div>
                 </div>
 
@@ -395,20 +405,36 @@
         function showOption(option) {
             const A = document.getElementById("optionA");
             const B = document.getElementById("optionB");
+            const C = document.getElementById("optionC");
             const btnA = document.getElementById("btnA");
             const btnB = document.getElementById("btnB");
+            const btnC = document.getElementById("btnC");
+            const noHotel = document.getElementById("noHotel");
 
             if (option === "A") {
                 A.classList.remove("hidden");
                 B.classList.add("hidden");
+                C.classList.add("hidden");
                 btnA.classList.add("active");
                 btnB.classList.remove("active");
-            } else {
+                btnC.classList.remove("active");
+                noHotel.classList.add("hidden");
+            } else if (option === "B") {
                 B.classList.remove("hidden");
                 A.classList.add("hidden");
+                C.classList.add("hidden");
                 btnB.classList.add("active");
                 btnA.classList.remove("active");
-            }
+                btnC.classList.remove("active");
+                noHotel.classList.remove("hidden");
+            } else if (option === "C") {
+                C.classList.remove("hidden");
+                A.classList.add("hidden");
+                B.classList.add("hidden");
+                btnC.classList.add("active");
+                btnA.classList.remove("active");
+                btnB.classList.remove("active");
+                noHotel.classList.remove("hidden");
         }
 
         function togglePrices() {
