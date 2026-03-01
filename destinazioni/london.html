@@ -281,12 +281,12 @@
                     <h3>Trasferimento verso Londra</h3>
                         <!-- BOTTONI SWITCH -->
                         <div class="option-switch">
-                            <button onclick="showOption('A')" id="btnA" class="active">Ride sharing</button>
-                            <button onclick="showOption('B')" id="btnB">Treno</button>
+                            <button onclick="showOption('A2')" id="btnA2" class="active">Ride sharing</button>
+                            <button onclick="showOption('B2')" id="btnB2">Treno</button>
                         </div>
 
                         <!-- OPZIONE A -->
-                        <div id="optionA">
+                        <div id="optionA2">
                             <h4>Ridesharing - Consigliato</h4>
                             <p>Durata: circa 1 ora<br>
                             Frequenza: ogni 15 minuti<br>
@@ -294,7 +294,7 @@
                         </div>
 
                         <!-- OPZIONE A -->
-                        <div id="optionB" class="hidden">
+                        <div id="optionB2" class="hidden">
                             <h4>Treno</h4>
                             <p>Treno Euston → Watford Junction – <span class="price">£12–15 A/R</span><br>
                             Shuttle bus – <span class="price">£3 A/R</span></p>
@@ -403,9 +403,13 @@
         function showOption(option) {
             const A = document.getElementById("optionA");
             const B = document.getElementById("optionB");
+            const A2 = document.getElementById("optionA2");
+            const B2 = document.getElementById("optionB2");
             const C = document.getElementById("optionC");
             const btnA = document.getElementById("btnA");
             const btnB = document.getElementById("btnB");
+            const btnA2 = document.getElementById("btnA2");
+            const btnB2 = document.getElementById("btnB2");
             const btnC = document.getElementById("btnC");
             const noHotel = document.getElementById("noHotel");
 
@@ -434,6 +438,19 @@
                 btnB.classList.remove("active");
                 noHotel.classList.remove("hidden");
             }
+
+            if (option === "A2") {
+                A2.classList.remove("hidden");
+                B2.classList.add("hidden");
+                btnA2.classList.add("active");
+                btnB2.classList.remove("active");
+            } else if (option === "B2") {
+                B2.classList.remove("hidden");
+                A2.classList.add("hidden");
+                btnB2.classList.add("active");
+                btnA2.classList.remove("active");
+            }
+
         }
 
         function togglePrices() {
